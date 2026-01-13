@@ -1,131 +1,381 @@
+:root {
+  --primary: #2b9fd9;
+  --primary-dark: #2286bd;
+  --secondary: #2f5f87;
+  --secondary-dark: #264d6e;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
 
-        :root {
-            --primary: #2B9FD9;
-            --primary-dark: #2286bd;
-            --secondary: #2F5F87;
-            --secondary-dark: #264d6e;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --info: #3b82f6;
-        }
+body {
+  font-family: "Inter", sans-serif;
+  background: #f8fafc;
+  font-size: 16px;
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-        }
+/* Typography scaling for better mobile readability */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
 
-        .sidebar {
-            background: linear-gradient(180deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-        }
+h2 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+}
 
-        .nav-link.active {
-            background: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid var(--primary);
-        }
+h3 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
 
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
-            border-radius: 8px;
-        }
+p,
+span {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
 
-        .period-btn {
-            background-color: white;
-            color: #4B5563;
-            transition: all 0.2s;
-        }
+/* Sidebar styling with enhanced responsiveness */
+.sidebar {
+  background: linear-gradient(
+    180deg,
+    var(--secondary) 0%,
+    var(--secondary-dark) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 40;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 16rem; /* 64px equivalent */
+}
 
-        .period-btn.active {
-            background-color: #2B9FD9;
-            color: white;
-            border-color: #2B9FD9;
-            box-shadow: 0 2px 8px rgba(43, 159, 217, 0.3);
-        }
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid var(--primary);
+}
 
-        .period-btn:hover:not(.active) {
-            background-color: #f0f9ff;
-            border-color: #93c5fd;
-        }
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
+  border-radius: 8px;
+}
 
-        .metric-card {
-            transition: all 0.3s ease;
-        }
+/* Responsive period buttons */
+.period-btn {
+  background-color: white;
+  color: #4b5563;
+  transition: all 0.2s;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  padding: 0.5rem 1rem;
+  flex: 1;
+  min-width: 80px;
+}
 
-        .metric-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
+.period-btn.active {
+  background-color: #2b9fd9;
+  color: white;
+  border-color: #2b9fd9;
+  box-shadow: 0 2px 8px rgba(43, 159, 217, 0.3);
+}
 
-        .insight-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+.period-btn:hover:not(.active) {
+  background-color: #f0f9ff;
+  border-color: #93c5fd;
+}
 
-        .badge-success {
-            background: #d1fae5;
-            color: #065f46;
-        }
+.metric-card {
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
 
-        .badge-warning {
-            background: #fef3c7;
-            color: #92400e;
-        }
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
 
-        .badge-danger {
-            background: #fee2e2;
-            color: #991b1b;
-        }
+.insight-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: clamp(0.7rem, 1.5vw, 0.75rem);
+  font-weight: 600;
+}
 
-        .badge-info {
-            background: #dbeafe;
-            color: #1e40af;
-        }
+.badge-success {
+  background: #d1fae5;
+  color: #065f46;
+}
 
-        .chart-container {
-            position: relative;
-            height: 320px;
-        }
+.badge-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
 
-        .progress-ring {
-            width: 120px;
-            height: 120px;
-        }
+.badge-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
 
-        .spending-bar {
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
-            overflow: hidden;
-        }
+.badge-info {
+  background: #dbeafe;
+  color: #1e40af;
+}
 
-        .spending-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transition: width 0.6s ease;
-        }
+/* Responsive chart containers */
+.chart-container {
+  position: relative;
+  height: clamp(250px, 50vh, 400px);
+  min-height: 250px;
+}
 
-        .trend-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
+.progress-ring {
+  width: clamp(80px, 25vw, 120px);
+  height: clamp(80px, 25vw, 120px);
+}
 
-        .trend-up {
-            color: var(--success);
-        }
+.spending-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
-        .trend-down {
-            color: var(--danger);
-        }
+.spending-bar-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  transition: width 0.6s ease;
+}
 
-        .trend-neutral {
-            color: #6b7280;
-        }
-    
+.trend-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 600;
+}
+
+.trend-up {
+  color: var(--success);
+}
+
+.trend-down {
+  color: var(--danger);
+}
+
+.trend-neutral {
+  color: #6b7280;
+}
+
+/* Enhanced responsive grid for metrics */
+@media (max-width: 768px) {
+  .grid-cols-1 {
+    gap: 1rem;
+  }
+
+  .metric-card {
+    padding: 1rem !important;
+  }
+
+  .metric-card p.text-2xl {
+    font-size: 1.5rem;
+  }
+
+  .metric-card p.text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Responsiveness */
+
+/* Mobile Sidebar Toggle */
+@media (max-width: 1023px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Overlay when sidebar is open */
+  .sidebar.active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  /* Adjust main content padding for mobile */
+  main {
+    padding: 0.5rem !important;
+  }
+
+  .p-8 {
+    padding: 1rem !important;
+  }
+
+  /* Adjust header on mobile */
+  .hidden.lg\:block {
+    display: none !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Adjust padding for smaller screens */
+  .p-6 {
+    padding: 1rem !important;
+  }
+
+  /* Make buttons more touch-friendly */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Adjust grid gaps */
+  .gap-6 {
+    gap: 1rem !important;
+  }
+
+  /* Stack input fields vertically */
+  .flex.gap-2 {
+    flex-direction: column;
+  }
+
+  /* Reduce padding in cards */
+  .bg-white.rounded-xl.shadow-sm {
+    padding: 1rem !important;
+  }
+
+  /* Adjust chart containers for mobile */
+  .chart-container {
+    height: 200px;
+  }
+
+  /* Make AI prediction chart more compact */
+  .h-80.lg\:h-96 {
+    height: 250px !important;
+  }
+
+  /* Adjust period buttons for mobile */
+  .flex.gap-2.flex-wrap {
+    justify-content: center;
+  }
+
+  .period-btn {
+    flex: 0 1 calc(50% - 0.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Adjust header balance */
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .chart-container {
+    height: 280px;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1024px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 16rem;
+  }
+
+  .lg\:ml-0 {
+    margin-left: 0;
+  }
+
+  /* Ensure sidebar doesn't cover content on large screens */
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sidebar,
+  header.lg\:hidden,
+  button,
+  .period-btn,
+  .insight-badge {
+    display: none !important;
+  }
+
+  main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .bg-white {
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+
+  .chart-container {
+    height: 300px !important;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .bg-gray-50 {
+    background-color: #1f2937 !important;
+  }
+
+  .bg-white {
+    background-color: #374151 !important;
+    color: #f3f4f6 !important;
+  }
+
+  .text-gray-900 {
+    color: #f9fafb !important;
+  }
+
+  .text-gray-500 {
+    color: #d1d5db !important;
+  }
+
+  .border-gray-200 {
+    border-color: #4b5563 !important;
+  }
+}

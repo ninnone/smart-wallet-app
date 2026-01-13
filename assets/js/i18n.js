@@ -638,3 +638,4 @@ function init() {
   updatePageTranslations();
   setLanguage(currentLanguage);
 }
+
