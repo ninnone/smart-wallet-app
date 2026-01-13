@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "serve ./public",
-    "build": "npm run build:css && npm run copy:assets",
-    "build:css": "tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --minify",
+    "build": "npm run prepare:build && npm run build:css && npm run copy:assets",
+    "prepare:build": "node -e \"const fs=require('fs');const path=require('path');const dir=path.join(__dirname,'public','assets','css');if(!fs.existsSync(dir)){fs.mkdirSync(dir,{recursive:true});}\"",
+    "build:css": "npx tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --minify",
     "copy:assets": "node scripts/copy-assets.js",
-    "dev": "tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --watch"
+    "dev": "npx tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.22",
