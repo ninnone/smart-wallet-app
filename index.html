@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="app.title">Smart Wallet - Intelligent Finance Management</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <!-- Chemin corrigé pour Vercel -->
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="./assets/images/logo.png">
+    <!-- Chemin corrigé pour Vercel -->
+    <link rel="icon" href="/assets/images/logo.png">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -78,8 +80,8 @@
 <body class="min-h-screen flex">
     <div class="hidden lg:flex lg:w-1/2 gradient-bg items-center justify-center p-12 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <img src="./assets/images/logo.png" alt="Smart Wallet Logo" class="w-10 h-10">
-
+            <!-- Chemin corrigé pour Vercel -->
+            <img src="/assets/images/logo.png" alt="Smart Wallet Logo" class="w-10 h-10">
         </div>
 
         <div class="relative z-10 text-white max-w-md">
@@ -150,9 +152,8 @@
         <div class="w-full max-w-md">
             <div class="lg:hidden text-center mb-8">
                 <div class="logo-circle mx-auto mb-4">
-
-                    <img src="./assets/images/logo.png" alt="Smart Wallet Logo" class="w-10 h-10">
-
+                    <!-- Chemin corrigé pour Vercel -->
+                    <img src="/assets/images/logo.png" alt="Smart Wallet Logo" class="w-10 h-10">
                 </div>
                 <h1 class="text-3xl font-heading font-bold text-secondary-700" data-i18n="app.brand">Smart Wallet</h1>
                 <p class="text-gray-600 mt-2" data-i18n="login.subtitle">Manage your finances intelligently</p>
@@ -307,8 +308,9 @@
                 Intelligent Finance Management</p>
         </div>
     </div>
-    <script type="module" src="./assets/js/i18n.js"></script>
-    <script type="module" src="./assets/js/auth.js"></script>
+    <!-- Chemins corrigés pour Vercel -->
+    <script type="module" src="/assets/js/i18n.js"></script>
+    <script type="module" src="/assets/js/auth.js"></script>
 </body>
 
 </html>
