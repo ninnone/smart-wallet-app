@@ -1,0 +1,131 @@
+
+        :root {
+            --primary: #2B9FD9;
+            --primary-dark: #2286bd;
+            --secondary: #2F5F87;
+            --secondary-dark: #264d6e;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid var(--primary);
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
+            border-radius: 8px;
+        }
+
+        .period-btn {
+            background-color: white;
+            color: #4B5563;
+            transition: all 0.2s;
+        }
+
+        .period-btn.active {
+            background-color: #2B9FD9;
+            color: white;
+            border-color: #2B9FD9;
+            box-shadow: 0 2px 8px rgba(43, 159, 217, 0.3);
+        }
+
+        .period-btn:hover:not(.active) {
+            background-color: #f0f9ff;
+            border-color: #93c5fd;
+        }
+
+        .metric-card {
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .insight-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 320px;
+        }
+
+        .progress-ring {
+            width: 120px;
+            height: 120px;
+        }
+
+        .spending-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .spending-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: width 0.6s ease;
+        }
+
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            color: var(--success);
+        }
+
+        .trend-down {
+            color: var(--danger);
+        }
+
+        .trend-neutral {
+            color: #6b7280;
+        }
+    
