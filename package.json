@@ -2,12 +2,12 @@
   "name": "finalfiwebarch",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve ./public",
+    "start": "npx serve ./public",
     "build": "npm run prepare:build && npm run build:css && npm run copy:assets",
     "prepare:build": "node -e \"const fs=require('fs');const path=require('path');const dir=path.join(__dirname,'public','assets','css');if(!fs.existsSync(dir)){fs.mkdirSync(dir,{recursive:true});}\"",
-    "build:css": "npx tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --minify",
+    "build:css": "node scripts/build-css.js",
     "copy:assets": "node scripts/copy-assets.js",
-    "dev": "npx tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --watch"
+    "dev": "node scripts/build-css.js && npx tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.23",
