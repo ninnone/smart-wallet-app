@@ -3,6 +3,8 @@
   "outputDirectory": "public",
   "installCommand": "npm install",
   "framework": null,
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/src/pages/(.*\\.html)",
