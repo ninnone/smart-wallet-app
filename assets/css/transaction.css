@@ -1,0 +1,254 @@
+ 
+        :root {
+            --primary: #2B9FD9;
+            --primary-dark: #2286bd;
+            --primary-light: #1aa3ff;
+            --secondary: #2F5F87;
+            --secondary-dark: #264d6e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid var(--primary);
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
+            border-radius: 8px;
+        }
+
+        /* Enhanced Form Styling */
+        .form-input,
+        .form-select {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+            background: #ffffff;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(43, 159, 217, 0.1);
+            outline: none;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.875rem;
+        }
+
+        /* Transaction Card Enhancements */
+        .transaction-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .transaction-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .transaction-card.income {
+            border-left-color: #10b981;
+        }
+
+        .transaction-card.expense {
+            border-left-color: #ef4444;
+        }
+
+        .transaction-card.savings {
+            border-left-color: #8b5cf6;
+        }
+
+        /* Upload Zone Enhancement */
+        .upload-zone {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px dashed #93c5fd;
+            transition: all 0.3s ease;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+
+        .upload-zone.dragging {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            box-shadow: 0 2px 8px rgba(43, 159, 217, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(43, 159, 217, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* AI Recommendation Styling */
+        .ai-recommendation {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Type Badge */
+        .type-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .type-badge.income {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .type-badge.expense {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .type-badge.savings {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        /* Icon Styling */
+        .transaction-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .transaction-icon.income {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .transaction-icon.expense {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        }
+
+        .transaction-icon.savings {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            position: relative;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d1d5db, transparent);
+        }
+
+        .section-divider span {
+            position: relative;
+            background: #f8fafc;
+            padding: 0 1rem;
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Filter Tab Styling */
+        .filter-tab {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .filter-tab:hover {
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(43, 159, 217, 0.4);
+        }
+   

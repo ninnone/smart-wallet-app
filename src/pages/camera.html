@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Receipt - Smart Wallet</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="../../assets/css/camera.css">
+   
+</head>
+
+<body>
+    <div class="camera-container">
+        <a href="transactions.html" class="back-button">
+            ←
+        </a>
+
+        <div class="camera-header">
+            <h1>Capture Receipt</h1>
+            <p>Take a clear photo of your receipt for automatic processing</p>
+        </div>
+
+        <div class="message error-message" id="errorMessage">
+            <strong>Error:</strong> <span id="errorText"></span>
+        </div>
+
+        <div class="message success-message" id="successMessage">
+            <strong>Success:</strong> <span id="successText"></span>
+        </div>
+
+        <div class="no-camera" id="noCameraMessage">
+            <h3>Camera Not Available</h3>
+            <p>Your device does not have a camera or camera access is blocked.</p>
+            <p>You can still upload receipts from your gallery.</p>
+            <button class="camera-btn camera-btn-primary" id="uploadFromGalleryFallback">
+                Choose from Gallery
+            </button>
+        </div>
+
+        <div id="cameraSection">
+            <div class="camera-wrapper">
+                <div id="cameraView">
+                    <video id="videoElement" autoplay playsinline></video>
+                    <canvas id="canvasElement"></canvas>
+                    <div class="camera-overlay">
+                        <div class="overlay-guide"></div>
+                        <div class="capture-indicator">
+                            Position receipt within the guide for best results
+                        </div>
+                    </div>
+                    <button class="flash-toggle" id="flashToggle" title="Toggle flash">
+                        ⚡
+                    </button>
+                </div>
+
+                <div class="camera-controls">
+                    <button class="camera-btn camera-btn-primary" id="captureBtn">
+                        Capture Photo
+                    </button>
+                    <button class="camera-btn camera-btn-secondary" id="retakeBtn" style="display: none;">
+                        Retake Photo
+                    </button>
+                    <button class="camera-btn camera-btn-danger" id="cancelBtn">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+            <div class="camera-options">
+                <button class="camera-option-btn active" data-camera="environment" id="backCameraBtn">
+                    Back Camera
+                </button>
+                <button class="camera-option-btn" data-camera="user" id="frontCameraBtn">
+                    Front Camera
+                </button>
+                <button class="camera-option-btn" id="uploadFromGallery">
+                    Choose from Gallery
+                </button>
+            </div>
+        </div>
+
+        <div class="preview-section" id="previewSection">
+            <h3>Preview</h3>
+            <img id="imagePreview" alt="Captured receipt">
+            <div class="processing" id="processingIndicator" style="display: none;">
+                <div class="spinner"></div>
+                <span>Processing receipt...</span>
+            </div>
+            <div class="camera-controls">
+                <button class="camera-btn camera-btn-primary" id="processBtn">
+                    Process Receipt
+                </button>
+                <button class="camera-btn camera-btn-secondary" id="useAsIsBtn">
+                    Use as is
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../../assets/js/i18n.js"></script>
+    <script type="module" src="../../assets/js/header.js"></script>
+    <script type="module" src="../../assets/js/camera.js"></script>
+</body>
+
+</html>

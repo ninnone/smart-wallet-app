@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWallet - Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+
+<body class="flex flex-col lg:flex-row min-h-screen bg-gray-50">
+    <!-- Mobile Header -->
+    <header class="lg:hidden bg-secondary text-white p-4 flex items-center justify-between sticky top-0 z-30 shadow-md">
+        <div class="flex items-center gap-3">
+            <div class="logo-mark w-10 h-10"></div>
+            <h1 class="text-xl font-bold font-heading">SmartWallet</h1>
+        </div>
+        <button id="sidebarToggle" class="p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 text-white p-6 overflow-y-auto shadow-xl">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="logo-mark"></div>
+            <h1 class="text-xl font-bold font-heading">SmartWallet</h1>
+        </div>
+
+        <nav class="space-y-2">
+            <a href="./dashboard.html"
+                class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                </svg>
+                <span data-i18n="nav.dashboard">Dashboard</span>
+            </a>
+            <a href="./transactions.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                    </path>
+                </svg>
+                <span data-i18n="nav.transactions">Transactions</span>
+            </a>
+            <a href="./analysis.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.analysis">Analysis</span>
+            </a>
+            <a href="./ocr.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.ocr">Scan Receipts</span>
+            </a>
+            <a href="./loans.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.loans">Loans</span>
+            </a>
+            <a href="./profile.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+                <span data-i18n="nav.profile">Profile</span>
+            </a>
+        </nav>
+
+        <div class="mt-8 pt-8 border-t border-white border-opacity-20 px-4">
+            <p class="text-xs text-secondary-300 uppercase tracking-wider mb-1" data-i18n="dashboard.balance">Total
+                Balance</p>
+            <p class="text-xl font-bold text-white" id="sidebarBalance">0 XAF</p>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-white border-opacity-20">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
+                    </path>
+                </svg>
+                <span class="font-semibold text-sm" data-i18n="nav.language">Language</span>
+            </div>
+            <div class="flex gap-2 mb-4">
+                <button
+                    class="flex-1 px-2 py-2 text-sm font-medium bg-white bg-opacity-20 text-white rounded hover:bg-opacity-30 transition"
+                    id="langEN">EN</button>
+                <button
+                    class="flex-1 px-2 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-10 text-gray-100 rounded transition"
+                    id="langFR">FR</button>
+            </div>
+            <button id="logoutBtn"
+                class="w-full px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition transform hover:scale-105"
+                data-i18n="nav.logout">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 lg:ml-0 overflow-auto bg-gray-50">
+        <!-- Header -->
+        <div class="bg-white border-b border-gray-200 px-4 lg:px-8 py-4 sticky top-0 lg:z-10 shadow-sm hidden lg:block">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 font-heading" data-i18n="dashboard.title">Dashboard</h1>
+                    <p class="text-sm text-gray-500 mt-1">Welcome back, <span id="welcomeName">KAROAB</span>!</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right">
+                        <p class="text-xs text-gray-500 font-medium" data-i18n="dashboard.currentBalance">Current
+                            Balance</p>
+                        <p class="text-2xl font-bold text-primary-600" id="headerBalance">0 XAF</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div>
+                            <p id="userName" class="text-gray-900 font-semibold text-right"></p>
+                            <p class="text-xs text-gray-500" data-i18n="dashboard.accountHolder">Account Holder</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                            K
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="p-8">
+            <!-- Period Filter -->
+            <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 mb-8">
+                <div class="flex flex-col xl:flex-row items-stretch xl:items-center gap-6">
+                    <div class="flex-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2"
+                            data-i18n="dashboard.filterPeriod">Filter by Period</label>
+                        <div class="flex gap-2">
+                            <button
+                                class="period-btn px-4 py-2 rounded-lg text-sm font-medium transition-all border border-gray-300 hover:border-primary-500 active"
+                                data-period="all" data-i18n="dashboard.allTime">All Time</button>
+                            <button
+                                class="period-btn px-4 py-2 rounded-lg text-sm font-medium transition-all border border-gray-300 hover:border-primary-500"
+                                data-period="daily" data-i18n="dashboard.daily">Daily</button>
+                            <button
+                                class="period-btn px-4 py-2 rounded-lg text-sm font-medium transition-all border border-gray-300 hover:border-primary-500"
+                                data-period="weekly" data-i18n="dashboard.weekly">Weekly</button>
+                            <button
+                                class="period-btn px-4 py-2 rounded-lg text-sm font-medium transition-all border border-gray-300 hover:border-primary-500"
+                                data-period="monthly" data-i18n="dashboard.monthly">Monthly</button>
+                            <button
+                                class="period-btn px-4 py-2 rounded-lg text-sm font-medium transition-all border border-gray-300 hover:border-primary-500"
+                                data-period="yearly" data-i18n="dashboard.yearly">Yearly</button>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2"
+                            data-i18n="dashboard.customPeriod">Custom Period</label>
+                        <div class="flex gap-2">
+                            <input type="date" id="startDate"
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            <input type="date" id="endDate"
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            <button id="applyCustomPeriod"
+                                class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg text-sm font-medium transition-all"
+                                data-i18n="dashboard.apply">Apply</button>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2"
+                            data-i18n="dashboard.filterType">Transaction Type</label>
+                        <select id="transactionTypeFilter"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            <option value="all" data-i18n="dashboard.allTypes">All Types</option>
+                            <option value="income" data-i18n="transactions.income">Income</option>
+                            <option value="expense" data-i18n="transactions.expense">Expense</option>
+                            <option value="savings" data-i18n="transactions.savings">Savings</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="metric-card bg-white rounded-xl shadow-sm p-4 lg:p-6 border-l-4 border-primary">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="dashboard.balance">Total Balance</p>
+                    <p class="text-2xl lg:text-3xl font-bold text-gray-900" id="totalBalance">0 XAF</p>
+                </div>
+                <div class="metric-card bg-white rounded-xl shadow-sm p-4 lg:p-6 border-l-4 border-success">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="dashboard.income">Total Income</p>
+                    <p class="text-2xl lg:text-3xl font-bold text-gray-900" id="totalIncome">0 XAF</p>
+                </div>
+                <div class="metric-card bg-white rounded-xl shadow-sm p-4 lg:p-6 border-l-4 border-danger">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="dashboard.expenses">Total Expenses</p>
+                    <p class="text-2xl lg:text-3xl font-bold text-gray-900" id="totalExpenses">0 XAF</p>
+                </div>
+                <div class="metric-card bg-white rounded-xl shadow-sm p-4 lg:p-6 border-l-4 border-info">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="dashboard.savings">Total Savings</p>
+                    <p class="text-2xl lg:text-3xl font-bold text-gray-900" id="totalSavings">0 XAF</p>
+                </div>
+            </div>
+
+            <!-- Charts and Recent Transactions -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Spending Trend Chart -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold text-gray-900 font-heading" data-i18n="dashboard.spendingTrend">
+                            Spending Trend</h2>
+                        <div class="flex gap-2">
+                            <span class="metric-badge positive">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Income
+                            </span>
+                            <span class="metric-badge negative">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Expenses
+                            </span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4 font-heading">Recent Transactions</h2>
+                    <div id="recentTransactions" class="space-y-3 max-h-80 overflow-y-auto">
+                        <p class="text-gray-500 text-sm text-center py-8">No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Breakdown and Financial Health -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Category Breakdown Chart -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="dashboard.spendingTrend">Spending Trend
+                    </h2>
+                    <div class="chart-container">
+                        <canvas id="spendingTrendChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="dashboard.categoryBreakdown">Expense
+                        Categories</h2>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Financial Health Metrics -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4 font-heading">Financial Health</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700" data-i18n="dashboard.savingRate">Saving
+                                    Rate</span>
+                                <span class="text-sm font-bold text-primary-600" id="savingRate">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary-500 h-2 rounded-full transition-all duration-500"
+                                    id="savingRateBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Expense Ratio</span>
+                                <span class="text-sm font-bold text-red-600" id="expenseRatio">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full transition-all duration-500"
+                                    id="expenseRatioBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200">
+                            <canvas id="monthlyComparisonChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Advice -->
+            <div
+                class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl shadow-sm p-6 mb-8 border border-primary-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 font-heading" data-i18n="dashboard.aiAdvice">AI Financial
+                        Advice</h2>
+                </div>
+                <div id="aiAdviceContainer"
+                    class="bg-white rounded-lg p-5 text-gray-700 min-h-24 mb-4 border-l-4 border-primary-500">
+                    <div id="ai-advice-display" data-i18n="dashboard.loadingAdvice">Loading personalized advice...</div>
+                </div>
+                <button id="getAdviceBtn"
+                    class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
+                    data-i18n="dashboard.getAdvice">Get Advice</button>
+
+                <!-- Leisure Alert and Savings Suggestion -->
+                <div id="leisure-alert"
+                    class="hidden mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 rounded-lg"></div>
+                <div id="ai-savings-suggestion"
+                    class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-700 rounded-lg italic"></div>
+            </div>
+
+            <!-- Alerts -->
+            <div id="alertsContainer" class="space-y-4"></div>
+        </div>
+    </main>
+
+    <script type="module" src="../../assets/js/i18n.js"></script>
+    <script type="module" src="../../assets/js/header.js"></script>
+    <script type="module" src="../../assets/js/dashboard.js"></script>
+</body>
+
+</html>

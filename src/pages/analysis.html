@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wallet - Analysis</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="../../assets/css/analysis.css">
+   
+</head>
+
+<body class="flex flex-col lg:flex-row min-h-screen bg-gray-50">
+    <header class="lg:hidden bg-secondary text-white p-4 flex items-center justify-between sticky top-0 z-30 shadow-md">
+        <div class="flex items-center gap-3">
+            <div class="logo-mark w-10 h-10"></div>
+            <h1 class="text-xl font-bold font-heading">SmartWallet</h1>
+        </div>
+        <button id="sidebarToggle" class="p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 text-white p-6 overflow-y-auto shadow-xl">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="logo-mark"></div>
+            <h1 class="text-xl font-bold font-heading">SmartWallet</h1>
+        </div>
+        <nav class="space-y-2">
+            <a href="./dashboard.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                </svg>
+                <span data-i18n="nav.dashboard">Dashboard</span>
+            </a>
+            <a href="./transactions.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                    </path>
+                </svg>
+                <span data-i18n="nav.transactions">Transactions</span>
+            </a>
+            <a href="./analysis.html"
+                class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.analysis">Analysis</span>
+            </a>
+            <a href="./ocr.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.ocr">Scan Receipts</span>
+            </a>
+            <a href="./loans.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                </svg>
+                <span data-i18n="nav.loans">Loans</span>
+            </a>
+            <a href="./profile.html"
+                class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+                <span data-i18n="nav.profile">Profile</span>
+            </a>
+        </nav>
+
+        <div class="mt-8 pt-8 border-t border-white border-opacity-20 px-4">
+            <p class="text-xs text-secondary-300 uppercase tracking-wider mb-1" data-i18n="dashboard.balance">Total
+                Balance</p>
+            <p class="text-xl font-bold text-white" id="sidebarBalance">0 XAF</p>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-white border-opacity-20">
+            <div class="flex items-center gap-3 mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
+                    </path>
+                </svg>
+                <span class="font-semibold text-sm" data-i18n="nav.language">Language</span>
+            </div>
+            <div class="flex gap-2 mb-4">
+                <button
+                    class="flex-1 px-2 py-2 text-sm font-medium bg-white bg-opacity-20 text-white rounded hover:bg-opacity-30 transition"
+                    id="langEN">EN</button>
+                <button
+                    class="flex-1 px-2 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-10 text-gray-100 rounded transition"
+                    id="langFR">FR</button>
+            </div>
+            <button id="logoutBtn"
+                class="w-full px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition transform hover:scale-105"
+                data-i18n="nav.logout">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 lg:ml-0 overflow-auto bg-gray-50">
+        <!-- Header -->
+        <div class="bg-white border-b border-gray-200 px-4 lg:px-8 py-4 sticky top-0 lg:z-10 shadow-sm hidden lg:block">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 font-heading" data-i18n="analysis.title">Financial
+                        Analysis</h1>
+                    <p class="text-sm text-gray-500 mt-1" data-i18n="analysis.subtitle">Comprehensive insights into your
+                        financial patterns</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right">
+                        <p class="text-xs text-gray-500 font-medium" data-i18n="analysis.currentBalance">Current Balance
+                        </p>
+                        <p class="text-2xl font-bold text-primary" id="headerBalance">0 XAF</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div>
+                            <p id="userName" class="text-gray-900 font-semibold text-right"></p>
+                            <p class="text-xs text-gray-500" data-i18n="analysis.accountHolder">Account Holder</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-lg shadow-md">
+                            K
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8">
+            <!-- Period Selection -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border-l-4" style="border-color: var(--primary);">
+                <h3 class="font-semibold text-gray-900 mb-4" data-i18n="analysis.selectPeriod">Select Analysis Period
+                </h3>
+                <div class="flex gap-2 flex-wrap mb-4">
+                    <button class="period-btn px-4 py-2 rounded-lg border-2 border-gray-300 font-medium transition"
+                        data-period="daily" data-i18n="analysis.daily">Daily</button>
+                    <button class="period-btn px-4 py-2 rounded-lg border-2 border-gray-300 font-medium transition"
+                        data-period="weekly" data-i18n="analysis.weekly">Weekly</button>
+                    <button class="period-btn active px-4 py-2 rounded-lg border-2 font-medium transition"
+                        data-period="monthly" data-i18n="analysis.monthly">Monthly</button>
+                    <button class="period-btn px-4 py-2 rounded-lg border-2 border-gray-300 font-medium transition"
+                        data-period="yearly" data-i18n="analysis.yearly">Yearly</button>
+                </div>
+                <div class="flex gap-2">
+                    <div class="flex-1">
+                        <label class="text-xs text-gray-600 mb-1 block" data-i18n="analysis.startDate">Start
+                            Date</label>
+                        <input type="date" id="startDate"
+                            class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition">
+                    </div>
+                    <div class="flex-1">
+                        <label class="text-xs text-gray-600 mb-1 block" data-i18n="analysis.endDate">End Date</label>
+                        <input type="date" id="endDate"
+                            class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition">
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Risk Alert Banner -->
+            <div id="budget-risk-alert"
+                class="hidden mb-8 p-6 bg-red-100 border-l-8 border-red-600 rounded-2xl shadow-xl animate-pulse">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white flex-shrink-0">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-900 text-lg">Financial Deficit Warning</h3>
+                        <p id="budget-risk-text" class="text-red-700 font-medium"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-100">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="analysis.avgIncome">Average Income</p>
+                    <p class="text-2xl font-bold text-gray-900" id="avgIncome">0 XAF</p>
+                    <div id="incomeTrend" class="mt-2"></div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-100">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="analysis.avgExpenses">Average Expenses</p>
+                    <p class="text-2xl font-bold text-gray-900" id="avgExpenses">0 XAF</p>
+                    <div id="expenseTrend" class="mt-2"></div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-100">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="analysis.savingsRate">Savings Rate</p>
+                    <p class="text-2xl font-bold text-green-600" id="savingsRateValue">0%</p>
+                    <p class="text-xs text-gray-500 mt-2">Target: 20%</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-100">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1"
+                        data-i18n="analysis.burnRate">Burn Rate</p>
+                    <p class="text-2xl font-bold text-red-600" id="burnRate">0 XAF/day</p>
+                    <p class="text-xs text-gray-500 mt-2">Daily intensity</p>
+                </div>
+            </div>
+
+            <!-- Primary Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-gray-900" data-i18n="analysis.incomeVsExpenses">Income vs
+                            Expenses</h2>
+                        <span class="insight-badge badge-info" id="cashFlowBadge">Analyzing...</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="incomeExpenseChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-gray-900" data-i18n="analysis.trendAnalysis">Trend Analysis
+                        </h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="analysis.categoryBreakdown">Category
+                        Breakdown</h2>
+                    <div class="chart-container">
+                        <canvas id="categoryPieChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="analysis.savingsProgress">Savings
+                        Progress</h2>
+                    <div class="chart-container">
+                        <canvas id="savingsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="analysis.expenseDistribution">Daily
+                        Expenses</h2>
+                    <div class="chart-container">
+                        <canvas id="dailyExpenseChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Detailed Category Analysis -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="analysis.detailedCategoryAnalysis">Detailed
+                    Category Analysis</h2>
+                <div id="categoryAnalysisContainer" class="space-y-4"></div>
+            </div>
+
+            <!-- AI Prediction Chart (Full Width) -->
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 mb-6 border-2 border-primary border-opacity-20 transform hover:scale-[1.02] transition-transform duration-300">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-900 font-heading" data-i18n="analysis.aiPrediction">AI
+                        Savings Prediction</h2>
+                    <span class="insight-badge badge-success" id="savingsStatusBadge" data-i18n="analysis.onTrack">On
+                        Track</span>
+                </div>
+
+                <!-- CSS Gradient Graph -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-sm font-semibold text-gray-600"
+                            data-i18n="analysis.currentMonthProgress">Current Month Progress</span>
+                        <span class="text-2xl font-bold text-primary" id="cssSavingsPercent">0%</span>
+                    </div>
+                    <div class="relative h-6 bg-gray-100 rounded-full overflow-hidden shadow-inner">
+                        <div id="cssSavingsBar"
+                            class="absolute top-0 left-0 h-full bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 transition-all duration-1000 ease-out shadow-lg"
+                            style="width: 0%">
+                            <div class="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-xs font-medium text-gray-400">
+                        <span>0 XAF</span>
+                        <span id="savingsGoalLabel" data-i18n="analysis.savingsGoal">Goal: --</span>
+                    </div>
+                </div>
+
+                <div class="chart-container h-80 lg:h-96">
+                    <canvas id="aiPredictionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Financial Health & Insights -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-sm p-6 border border-blue-100">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4">
+                        <span data-i18n="analysis.financialHealth">Financial Health Score</span>
+                    </h2>
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="relative">
+                            <svg class="progress-ring" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="54" fill="none" stroke="#e5e7eb" stroke-width="12" />
+                                <circle id="healthScoreCircle" cx="60" cy="60" r="54" fill="none" stroke="#2B9FD9"
+                                    stroke-width="12" stroke-linecap="round" transform="rotate(-90 60 60)"
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-3xl font-bold text-gray-900" id="healthScore">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="healthInsights" class="space-y-2"></div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-sm p-6 border border-green-100">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4">
+                        <span data-i18n="analysis.smartInsights">Smart Insights</span>
+                    </h2>
+                    <div id="smartInsightsContainer" class="space-y-3"></div>
+                    <!-- Leisure Alert and Savings Suggestion -->
+                    <div id="leisure-alert"
+                        class="hidden mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 rounded-lg">
+                    </div>
+                    <div id="ai-savings-suggestion"
+                        class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-700 rounded-lg italic"></div>
+                </div>
+            </div>
+
+            <!-- Spending Patterns -->
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <h2 class="text-lg font-bold text-gray-900 mb-4" data-i18n="analysis.spendingPatterns">Spending Patterns
+                </h2>
+                <div id="spendingPatternsContainer" class="space-y-4"></div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../../assets/js/i18n.js"></script>
+    <script type="module" src="../../assets/js/header.js"></script>
+    <script type="module" src="../../assets/js/analysis.js"></script>
+</body>
+
+</html>
