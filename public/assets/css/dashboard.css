@@ -1,0 +1,89 @@
+ 
+        :root {
+            --primary: #2B9FD9;
+            --primary-dark: #2286bd;
+            --secondary: #2F5F87;
+            --secondary-dark: #264d6e;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid var(--primary);
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
+            border-radius: 8px;
+        }
+
+        .stat-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .balance-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, #1aa3ff 100%);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+
+        .recent-transaction-item {
+            transition: background-color 0.2s;
+        }
+
+        .recent-transaction-item:hover {
+            background-color: #f9fafb;
+        }
+
+        .metric-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .metric-badge.positive {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .metric-badge.negative {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .period-btn {
+            background-color: white;
+            color: #4B5563;
+        }
+
+        .period-btn.active {
+            background-color: #2B9FD9;
+            color: white;
+            border-color: #2B9FD9;
+        }
+
+        .period-btn:hover:not(.active) {
+            background-color: #f9fafb;
+        }
+    
