@@ -2,9 +2,9 @@
   "name": "finalfiwebarch",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tailwindcss -i ./configs/input.css -o ./assets/css/main.css && vite build",
-    "preview": "vite preview"
+    "start": "serve ./public",
+    "build": "tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --minify",
+    "dev": "tailwindcss -i ./configs/input.css -o ./public/assets/css/main.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.22",
